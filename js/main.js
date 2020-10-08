@@ -1,13 +1,29 @@
 $(function () {
    $('.top__slider').slick({
-      prevArrow: '<button class="slider-btn slider-btn__prev"><img src="images/icon/arrow-prev.svg" alt=""></button>',
-      nextArrow: '<button class="slider-btn slider-btn__next"><img src="images/icon/arrow-next.svg" alt=""></button>',
+      prevArrow: '<img class="slider-btn slider-btn__prev" src="images/icon/arrow-prev.svg" alt="">',
+      nextArrow: '<img class="slider-btn slider-btn__next" src="images/icon/arrow-next.svg" alt="">',
+      slidesToShow: 1,
+      slidesToScroll: 1,
       infinite: false,
       dots: true,
+      
    });
-   
+
+
+
    $(".filter-down").on("click", function () {
       $(".category__list").slideToggle();
+      $(".filter-products__country-title").addClass("filter-active");
+   });
+
+   $('.header__menu-btn').on('click', function () {
+      $('.header__menu-list').slideToggle();
+   });
+
+
+
+   $(".filter-down").on("click", function () {
+      // $(".category__list").slideToggle();
       $(".filter-products__country").removeClass("filter-active");
       $(this).parent().addClass("filter-active");
    });
@@ -67,8 +83,6 @@ $(function () {
 
    $('input[type="file"],input[type="checkbox"],input[type="radio"],select').styler();
 
-
-
-
+   new WOW().init();
 
 });
